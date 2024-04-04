@@ -2,19 +2,21 @@ from math import *
 from random import uniform
 
 
-def calculate_max_value(infimum, supremum, expression, points):
+def calculate_min_max_value(infimum, supremum, expression, points):
     max_value = float('-inf')
+    min_value = float('inf')
     for i in range(points):
         x = uniform(infimum, supremum)
-        tmp_max = eval(expression)
-        if tmp_max > max_value:
-            max_value = tmp_max
-
-    return round(max_value)
+        tmp_value = eval(expression)
+        if tmp_value > max_value:
+            max_value = tmp_value
+        if tmp_value < min_value:
+            min_value = tmp_value
+    return round(min_value), round(max_value)
 
 
 # interval = input("Please provide integration interval, e.g. 0 3 \n")
-print(calculate_max_value(0,2,"sin(x)", 1000))
+print(calculate_min_max_value(-1,2,"2*x**5", 1000))
 # x = 3
 # expression = eval(test)
 
