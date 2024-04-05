@@ -22,21 +22,14 @@ def is_point_under_curve(x, yp, expression):
 
     return True
 
-# interval = input("Please provide integration interval, e.g. 0 3 \n")
-print(calculate_min_max_value(-1,2,"2*x**5", 1000))
-# x = 3
-# expression = eval(test)
 
-# print(expression)
-# for i in range(3):
-#     x0 = uniform(0, 2)
-#     for j in range(3):
-#         y0 = uniform(0, 1)
-#
-#     print(x0, y0, is_point_under_curve(x0, y0, "sin(x)"))
+belongs = 0
+for i in range(2500):
+    x0 = uniform(0, 2)
+    for j in range(2500):
+        y0 = uniform(0, 1)
 
-# expression = input()
-test_expression = "sin(x)"
-x = uniform(0, 2)
-# y = uniform(
-# print(x)
+    if is_point_under_curve(x0, y0, "sin(x)"):
+        belongs += 1
+
+print((belongs / 2500) * 2)
