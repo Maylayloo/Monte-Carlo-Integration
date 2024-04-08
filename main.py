@@ -17,10 +17,14 @@ def find_extremes(infimum, supremum, expression, points):
 
 def is_point_under_curve(x, yp, expression):
     expression_y = eval(expression)
-    if yp > expression_y:
-        return False
+    if yp > 0 and expression_y > 0:
+        if yp < expression_y:
+            return True
+    elif yp < 0 and expression_y < 0:
+        if yp > expression_y:
+            return True
 
-    return True
+    return False
 
 
 belongs = 0
